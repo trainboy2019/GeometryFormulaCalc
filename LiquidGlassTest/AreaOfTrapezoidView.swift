@@ -1,0 +1,157 @@
+//
+//  AreaOfTrapezoidView.swift
+//  LiquidGlassTest
+//
+//  Created by James Rolader on 9/5/25.
+//
+
+import SwiftUI
+
+struct AreaOfTrapezoidView: View {
+    @AppStorage("storedOutput") var storedOutput: String = "Auto"
+    @EnvironmentObject var unitsVM: UnitsModel
+    @State private var base1: Double?
+    @State private var base2: Double?
+    @State private var height: Double?
+    @State private var result: Double?
+    @State private var resultText: String? = " "
+    @State private var isRadius: Bool = true
+    
+    func calculate() -> Void {
+        
+        let convertedBase1=Measurement(value: base1 ?? 0, unit: unitsVM.inputLength).converted(to: unitsVM.outputLength).value
+        let convertedBase2=Measurement(value: base2 ?? 0, unit: unitsVM.inputLength).converted(to: unitsVM.outputLength).value
+        let convertedHeight=Measurement(value: height ?? 0, unit: unitsVM.inputLength).converted(to: unitsVM.outputLength).value
+        
+        switch storedOutput {
+        case "Full number":
+            result=(((convertedBase1+convertedBase2)/2) * (convertedHeight))
+            resultText=String(format: "%.3f", result ?? 0)
+        default:
+            result=(((convertedBase1*convertedBase2)/2) * (convertedHeight))
+            resultText=String(format: "%.3f", result ?? 0)
+            if resultText=="0.000" || resultText!.count > 11 {
+                resultText=String(format: "%.3e", result ?? 0)
+            }
+        }
+        
+        resultText!+=" "+unitsVM.outputUnit
+        
+        if base1==nil{
+            resultText=""
+        }
+        if base2==nil{
+            resultText=""
+        }
+        if height==nil{
+            resultText=""
+        }
+    }
+    
+    var body: some View {
+            VStack{
+                Spacer()
+                #if os(iOS)
+                Text("Area of a Trapezoid")
+                    .foregroundStyle(.white)
+                    .font(.title)
+//                    .glassEffect(.clear.interactive())
+                    .padding()
+                    .frame(minWidth: 300, idealWidth: 300, maxWidth: 300)
+#else
+Spacer()
+                #endif
+                HStack{
+                    TextField("Base 1", value: $base1, format: .number)
+                        .glassEffect(.clear)
+                        .frame(minWidth: 80.0, idealWidth: 120.0, maxWidth: 160.0)
+                        .onSubmit {
+                            print("From onSubmit")
+                            calculate()
+                        }
+                        .padding()
+                    TextField("Base 2", value: $base2, format: .number)
+                        .glassEffect(.clear)
+                        .frame(minWidth: 80.0, idealWidth: 120.0, maxWidth: 160.0)
+                        .onSubmit {
+                            print("From onSubmit")
+                            calculate()
+                        }
+                        .padding()
+                    }
+                    TextField("Height", value: $height, format: .number)
+                        .glassEffect(.clear)
+                        .frame(minWidth: 80.0, idealWidth: 120.0, maxWidth: 160.0)
+                        .onSubmit {
+                            print("From onSubmit")
+                            calculate()
+                        }
+                        .padding()
+//                Button("Calculate") {
+//                    calculate()
+//                }
+//                .padding()
+//                .glassEffect(.clear)
+//                .buttonStyle(.glass)
+                
+                    Text("Calculate")
+                    .foregroundStyle(.white)
+                        .padding()
+                        .glassEffect(.clear.interactive())
+                        .frame(minWidth: 300, idealWidth: 300, maxWidth: 300)
+                        .onTapGesture {
+                            calculate()
+                        }
+                
+                Spacer()
+                HStack(alignment:.firstTextBaseline){
+                    Text("Result: ").frame(width: 60, alignment: .leading)
+                        .foregroundStyle(.white)
+                    ZStack(alignment: .leading) {
+                        // Invisible placeholder to reserve space
+                        Text("Somereasonab")
+                            .opacity(0)
+                        
+                        // Actual dynamic content
+                        Text(resultText ?? " ")
+                            .foregroundStyle(.white)
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                    }
+                }
+                Spacer()
+                            UnitChangerView()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+            }
+            .onReceive(unitsVM.$inputUnit) { newValue in
+                print("scaleChanged")
+                if base1 != nil && base2 != nil && height != nil{
+                    DispatchQueue.main.async {
+                        print("From onReceive (deferred)")
+                        calculate()
+                    }
+                }
+            }
+            .onReceive(unitsVM.$outputUnit) { newValue in
+                print("scaleChanged")
+                if base1 != nil && base2 != nil && height != nil {
+                    DispatchQueue.main.async {
+                        print("From onReceive (deferred)")
+                        calculate()
+                    }
+                }
+            }
+        }
+    
+}
+
+
+
+#Preview {
+    AreaOfTrapezoidView()
+        .environmentObject(UnitsModel())
+}
