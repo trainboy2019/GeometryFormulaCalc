@@ -108,6 +108,8 @@ struct AreaOfSphereView: View {
                     .onTapGesture {
                         calculate()
                     }
+                    .background(Color.clear)
+                    .contentShape(Rectangle())
                 
                 Spacer()
                 HStack {
@@ -135,6 +137,7 @@ struct AreaOfSphereView: View {
                             .foregroundStyle(.white)
                             .lineLimit(1)
                             .truncationMode(.tail)
+                            .textSelection(.enabled)
                     }
                 }
                 Spacer()

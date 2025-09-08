@@ -81,6 +81,13 @@ struct AreaOfRegularPolygonView: View {
 
         // Append area units (e.g., "Square Feet")
         resultText = (resultText ?? "") + " " + unitsVM.outputUnit
+        
+        if sides == nil {
+            resultText = ""
+        }
+        if sideLength == nil {
+            resultText = ""
+        }
     }
 
     var body: some View {
@@ -124,6 +131,8 @@ Spacer()
                 .onTapGesture {
                     calculate()
                 }
+                .background(Color.clear)
+                .contentShape(Rectangle())
 
             Spacer()
 
@@ -137,6 +146,7 @@ Spacer()
                         .foregroundStyle(.white)
                         .lineLimit(1)
                         .truncationMode(.tail)
+                        .textSelection(.enabled)
                 }
             }
 
@@ -150,14 +160,14 @@ Spacer()
         }
         .onReceive(unitsVM.$inputUnit) { _ in
             // Recalculate if inputs exist
-            if sideLength != nil {
+            if sideLength != nil && sides != nil {
                 DispatchQueue.main.async {
                     calculate()
                 }
             }
         }
         .onReceive(unitsVM.$outputUnit) { _ in
-            if sideLength != nil {
+            if sideLength != nil && sides != nil {
                 DispatchQueue.main.async {
                     calculate()
                 }

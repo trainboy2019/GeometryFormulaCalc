@@ -102,6 +102,8 @@ Spacer()
                         .onTapGesture {
                             calculate()
                         }
+                        .background(Color.clear)
+                        .contentShape(Rectangle())
                 
                 Spacer()
                 HStack(alignment:.firstTextBaseline){
@@ -117,6 +119,7 @@ Spacer()
                             .foregroundStyle(.white)
                             .lineLimit(1)
                             .truncationMode(.tail)
+                            .textSelection(.enabled)
                     }
                 }
                 Spacer()

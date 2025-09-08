@@ -1,0 +1,200 @@
+{
+  "color-space-for-untagged-svg-colors" : "display-p3",
+  "fill" : {
+    "linear-gradient" : [
+      "display-p3:0.95294,0.47451,0.74118,1.00000",
+      "srgb:0.87843,0.18039,0.32941,1.00000"
+    ]
+  },
+  "groups" : [
+    {
+      "hidden" : true,
+      "layers" : [
+        {
+          "image-name" : "bezier 2.svg",
+          "name" : "bezier 2",
+          "position" : {
+            "scale" : 1.75,
+            "translation-in-points" : [
+              262.2,
+              262.2
+            ]
+          }
+        },
+        {
+          "fill-specializations" : [
+            {
+              "appearance" : "dark",
+              "value" : {
+                "solid" : "srgb:0.95294,0.47451,0.74118,1.00000"
+              }
+            }
+          ],
+          "glass" : true,
+          "hidden" : false,
+          "image-name" : "compass.png",
+          "name" : "compass",
+          "position" : {
+            "scale" : 0.59,
+            "translation-in-points" : [
+              0,
+              -75.16485328817265
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    },
+    {
+      "hidden" : false,
+      "layers" : [
+        {
+          "hidden" : false,
+          "image-name" : "lins2 2.svg",
+          "name" : "lins2 2",
+          "position" : {
+            "scale" : 3.75,
+            "translation-in-points" : [
+              0,
+              269.4
+            ]
+          }
+        },
+        {
+          "fill-specializations" : [
+            {
+              "appearance" : "dark",
+              "value" : {
+                "solid" : "srgb:0.87843,0.18039,0.32941,1.00000"
+              }
+            }
+          ],
+          "hidden" : true,
+          "image-name" : "lines.png",
+          "name" : "lines",
+          "position" : {
+            "scale" : 0.75,
+            "translation-in-points" : [
+              0,
+              270.6504775550857
+            ]
+          }
+        },
+        {
+          "fill-specializations" : [
+            {
+              "appearance" : "dark",
+              "value" : {
+                "solid" : "srgb:0.95294,0.47451,0.74118,1.00000"
+              }
+            }
+          ],
+          "glass" : true,
+          "hidden" : false,
+          "image-name" : "compass.png",
+          "name" : "compass",
+          "position" : {
+            "scale" : 0.6,
+            "translation-in-points" : [
+              0,
+              -78.92573072374378
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    },
+    {
+      "hidden" : true,
+      "layers" : [
+        {
+          "hidden" : false,
+          "image-name" : "5.screen_unspecified_unspecified_automatic.svg",
+          "name" : "5.screen_unspecified_unspecified_automatic"
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    },
+    {
+      "hidden" : true,
+      "layers" : [
+        {
+          "image-name" : "4.buttonsgrey_unspecified_unspecified_automatic.svg",
+          "name" : "4.buttonsgrey_unspecified_unspecified_automatic"
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    },
+    {
+      "hidden" : true,
+      "layers" : [
+        {
+          "image-name" : "3.buttonsorange_unspecified_unspecified_automatic.svg",
+          "name" : "3.buttonsorange_unspecified_unspecified_automatic"
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    },
+    {
+      "hidden" : true,
+      "layers" : [
+        {
+          "fill" : {
+            "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
+          },
+          "image-name" : "2.back_unspecified_unspecified_automatic.svg",
+          "name" : "2.back_unspecified_unspecified_automatic"
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}

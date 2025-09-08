@@ -19,8 +19,13 @@ enum NavigationOptions: Equatable, Hashable, Identifiable {
     case areaoftrapezoid
     case areaofregularpolygon
     case areaofsphere
+    case areaofcylinder
+    case areaofcone
+    case areaofcube
+    case areaofpyramid
+    case areaofellipse
     
-    static let mainPages: [NavigationOptions] = [.settings, .areaofcircle, .areaoftriangle, .areaofsquare, .areaoftrapezoid, .areaofregularpolygon, .areaofsphere]
+    static let mainPages: [NavigationOptions] = [.settings, .areaofcircle, .areaoftriangle, .areaofsquare, .areaoftrapezoid, .areaofellipse, .areaofregularpolygon, .areaofsphere, .areaofcylinder, .areaofcone, .areaofcube, .areaofpyramid]
     
     var id: String {
         switch self {
@@ -31,6 +36,11 @@ enum NavigationOptions: Equatable, Hashable, Identifiable {
         case .areaoftrapezoid: return "Area of a Trapezoid"
         case .areaofregularpolygon: return "Area of a Regular Polygon"
         case .areaofsphere: return "Surface Area of a Sphere"
+        case .areaofcylinder: return "Surface Area of a Cylinder"
+        case .areaofcone: return "Surface Area of a Cone"
+        case .areaofcube: return "Surface Area of a Cube"
+        case .areaofpyramid: return "Surface Area of a Pyramid"
+        case .areaofellipse: return "Area of an Ellipse"
         }
     }
     
@@ -43,6 +53,11 @@ enum NavigationOptions: Equatable, Hashable, Identifiable {
         case .areaoftrapezoid: LocalizedStringResource("Area of a Trapezoid", comment: "Calculate the area of a trapezoid via the bases and height.")
         case .areaofregularpolygon: LocalizedStringResource("Area of a Regular Polygon", comment: "Calculate the area of a regular polygon via the number of sides and side length.")
         case .areaofsphere: LocalizedStringResource("Surface Area of a Sphere", comment: "Calculate the surface area of a sphere via the radius or diameter.")
+        case .areaofcylinder: LocalizedStringResource("Surface Area of a Cylinder", comment: "Calculate the surface area of a cylinder via the height, and the radius or diameter.")
+        case .areaofcone: LocalizedStringResource("Surface Area of a Cone", comment: "Calculate the surface area of a cone via the height, and the radius or diameter.")
+        case .areaofcube: LocalizedStringResource("Surface Area of a Cube", comment: "Calculate the surface area of a cube via the length, width, and height.")
+        case .areaofpyramid: LocalizedStringResource("Surface Area of a Pyramid", comment: "Calculate the surface area of a pyramid via the length, width, and height.")
+        case .areaofellipse: LocalizedStringResource("Area of an Ellipse", comment: "Calculate the area of an ellipse via the radius or diameter of the two axes.")
         }
     }
     
@@ -55,6 +70,11 @@ enum NavigationOptions: Equatable, Hashable, Identifiable {
         case .areaoftrapezoid: "trapezoid.fill"
         case .areaofregularpolygon: "seal.fill"
         case .areaofsphere: "globe"
+        case .areaofcylinder: "cylinder"
+        case .areaofcone: "cone"
+        case .areaofcube: "cube"
+        case .areaofpyramid: "pyramid"
+        case .areaofellipse: "oval"
         }
     }
     
@@ -82,6 +102,21 @@ enum NavigationOptions: Equatable, Hashable, Identifiable {
                 .modifier(LightModeGradientBackground())
         case .areaofsphere:
             AreaOfSphereView()
+                .modifier(LightModeGradientBackground())
+        case .areaofcylinder:
+            AreaOfCylinder()
+                .modifier(LightModeGradientBackground())
+        case .areaofcone:
+            AreaOfCone()
+                .modifier(LightModeGradientBackground())
+        case .areaofcube:
+            AreaOfCube()
+                .modifier(LightModeGradientBackground())
+        case .areaofpyramid:
+            AreaOfPyramid()
+                .modifier(LightModeGradientBackground())
+        case .areaofellipse:
+            AreaOfEllipse()
                 .modifier(LightModeGradientBackground())
         }
     }
